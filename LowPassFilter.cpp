@@ -1,7 +1,7 @@
 
 #include "LowPassFilter.hpp"
 
-#define ERROR_CHECK (true)
+#define ERROR_CHECK false
 
 #if ERROR_CHECK
 #include <iostream>
@@ -46,6 +46,7 @@ void LowPassFilter::reconfigureFilter(float deltaTime, float cutoffFrequency){
 		std::cout << "Warning: A LowPassFilter instance has been configured with 0 Hz as cut-off frequency.";
 		ePow = 0;
 	}
-	#endif
-	ePow = 1-exp(-deltaTime * 2 * M_PI * cutoffFrequency);
+    #endif
+
+	ePow = 1.0f - expf(-deltaTime * 2.0f * M_PI * cutoffFrequency);
 }

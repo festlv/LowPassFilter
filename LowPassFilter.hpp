@@ -14,6 +14,7 @@ public:
 	float update(float input, float deltaTime, float cutoffFrequency);
 	//get and configure funtions
 	float getOutput() const{return output;}
+    void setOutput(float v) { output = v; }
 	void reconfigureFilter(float deltaTime, float cutoffFrequency);
 private:
 	float output;
